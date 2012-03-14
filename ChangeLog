@@ -1,0 +1,17 @@
+commit 184a0c3c0cbd77764cc3194cddf97e667f89a053
+Author: Anton Vinogradov <antvinogradov@gmail.com>
+Date:   Mon Mar 12 10:21:21 2012 +0300
+
+    Added delete_airplane method via entering name of the airceaft. Added method Radar#each_airplane which returns name, speed, altitude and position of the aircrafts.
+
+commit 19a1004d88b1b148c288678c5a1463cb4d7bbd27
+Author: Anton Vinogradov <antvinogradov@gmail.com>
+Date:   Wed Mar 7 21:16:45 2012 +0300
+
+    added delete_airplane method in radar.rb
+
+commit f1687cae051228eea98eba31d7b81738590c7a76
+Author: Anton Vinogradov <antvinogradov@gmail.com>
+Date:   Thu Mar 1 19:50:25 2012 +0300
+
+    Added Radar and Airplane classes with basic methods
