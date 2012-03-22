@@ -14,7 +14,7 @@ radar.add_airplane(plane_1, plane_2, plane_3, plane_4, plane_4)
 airport1 = Airport.new
 
 airport1.add_airplane(plane_1, plane_2, plane_3, plane_4, plane_4)
-p airport1.airplanes
+#p airport1.airplanes
 #p radar.airplanes.size
 #radar.delete_airplane("Anton 888")
 #radar.delete_airplane("Anton 777")
@@ -32,15 +32,16 @@ p airport1.airplanes
 #p airplane1
 #p airplane2
 
-#runway1 = Runway.create({ :length => 100, :course => 120, :surface_type => "Asphalt", :position_x => 1000, :position_y => 900, :altitude => 1499})
-#runway2 = Runway.create({ :length => 444, :course => 45, :surface_type => "concrete", :position_x => 1000, :position_y => 900, :altitude => 1499})
+runway1 = Runway.create({ :length => 100, :course => 120, :surface_type => "Asphalt", :position_x => 1000, :position_y => 900, :altitude => 1499})
+runway2 = Runway.create({ :length => 444, :course => 45, :surface_type => "concrete", :position_x => 1000, :position_y => 900, :altitude => 1499})
 #p runway1
 #p runway2
 
-#airport1 = Airport.create( {:name => "Franklin", :code => 007, :runways => [runway1, runway2]} )
+airport1 = Airport.create( {:name => "Franklin", :code => 007, :runways => [runway1, runway2]} )
 #p airport1
 
-#runway1.receive_airplane(plane_1)
-#runway1.depart_airplane
-#runway1.receive_airplane(plane_2)
+runway1.receive_airplane(plane_1)
+p airport1.airplanes
+runway1.depart_airplane
+runway1.receive_airplane(plane_2)
 #p runway1

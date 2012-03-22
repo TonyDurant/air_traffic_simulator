@@ -6,22 +6,19 @@
 
 class Runway
 
-	attr_writer :length, :course, :surface_type, :position_x, :position_y, :altitude
+	attr_reader :length, :course, :surface_type, :position_x, :position_y, :altitude
+  attr_accessor :airport
 
 	def self.create(options={})
-		runway              = Runway.new(options)
-    runway.length       = options[:length]       || rand(4_000)
-    runway.course       = options[:course]       || rand(360)
-    runway.surface_type = options[:surface_type] || "Asphalt"
-    runway.position_x   = options[:position_x]   || rand(100)
-    runway.position_y   = options[:position_y]   || rand(100)
-    runway.altitude     = options[:altitude]     || rand(3000)
-    runway
+    Runway.new(options)
 	end
 
-	def initialize(st)
-		@surface_type = st
-		@airplane = Array.new
+	def initialize(options)
+    @length       = options[:length] # сделать так все.
+    @surface_type = options[:surface_type]
+    @position_x   = options[:position_x]
+    @position_y   = options[:position_y]
+    @altitude     = options[:altitude]
 	end
 	
 #	3. Создать методы Runway#receive_airplane и Runway#depart_airplane.
@@ -32,18 +29,16 @@ class Runway
 #depart_airplane.
 
 	def receive_airplane(plane)
-		if array_empty? == true
-			@airplane.push(plane)
-		else puts "Can't add a plane coz runway is occupy"			
+		if @airplane.nil?
+			@airplane = plane
+      airport.add_airplane(plane)
+		else
+      puts "Can't add a plane coz runway is occupy"			
 		end
 	end
 
 	def depart_airplane
-		@airplane.pop
-	end
-
-	def array_empty?
-		@airplane.empty?
+		@airplane = nil
 	end
 	
 end

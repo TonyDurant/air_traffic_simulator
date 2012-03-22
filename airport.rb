@@ -15,11 +15,12 @@ class Airport
 	include AirplaneContainer
 
 	def self.create(options={})
-		airport         = Airport.new(options)
+		airport         = Airport.new
 		airport.name    = options[:name]
 		airport.code    = options[:code]
+		#airport.runways = options[:runways]
 		airport.runways = options[:runways]
-		#airport.runways = @runways.push(Airport.new(options[:runways]))
+    airport.runways.each { |runway| runway.airport=(airport) }
 		airport
 	end
 
