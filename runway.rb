@@ -21,7 +21,22 @@ class Runway
 
 	def initialize(st)
 		@surface_type = st
+		@airplane = airplane
 	end
 	
+#	3. Создать методы Runway#receive_airplane и Runway#depart_airplane.
+#Тут нужно понимать, что объект класса Runway может в один момент
+#времени иметь только один самолет (понадобится свойство @airplane) и
+#метод #receive_airplane не может принимать новый самолет до тех пор,
+#пока существующий самолет не удален из этого свойства методом
+#depart_airplane.
+
+	def receive_airplane
+		
+	end
+
+	def depart_airplane
+		
+	end
 	
 end

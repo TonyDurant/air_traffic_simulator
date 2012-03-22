@@ -1,15 +1,20 @@
 class Airplane
 
-  attr_accessor :velocity, :altitude, :heading, :position
+  attr_accessor :velocity, :altitude, :heading, :position, :weight
   attr_reader   :aircraft_type
 
-  #  3. Сделать так, чтобы все случайные значения для всех методов, которые
-  # их возвращают устанавливались при создании объекта в методе initialize
-  # класса Airplane. Для этого нужно использовать инстансные переменные @
-  # в методе initialize. Затем соответствующие методы должны просто
-  # возвращать эти инстансные переменные (то есть нужны геттеры).
+  def self.create(options={})
+    airplane          = Airplane.new(options[:aircraft_type])
+    airplane.weight   = options[:weight]   || rand(600)
+    airplane.velocity = options[:velocity] || rand(900)
+    airplane.altitude = options[:altitude] || rand(10000)
+    airplane.heading  = options[:heading]  || rand(360)
+    airplane.position = options[:position] || [rand(90), rand(180)]
+    airplane
+  end
+
   def initialize(ac)
-  	@aircraft_type = ac
+    @aircraft_type = ac
     @velocity      = rand(900)
     @altitude      = 0
     @heading       = rand(360)
@@ -18,18 +23,10 @@ class Airplane
   end
 
   def enough_fuel?
-  	@fuel_quantity > 1
+    @fuel_quantity > 1
   end
 
   private
-
-#    def fuel_quantity
-#  	  rand(10)
-#    end
-
-    # 2. Добавить в класс Airplane приватные методы, "вес" (от 0 до 600
-    # тонн) и "тяга двигателей" (thrust, от 0 до 10 условных единиц). Пусть
-    # тоже возвращают случайные значения.
 
     def weight
       rand(600)

@@ -18,8 +18,29 @@ class Radar
  	# => б) сделать так, чтобы можно было в него передавать не один самолет,
 	# а, например, несколько сразу. (см. 6.4.2 в книге по Ruby) и, чтобы
 	#каждый самолет в таком случае, добавлялся на радар.
+
+
+	#3. Модифицировать метод Radar#add таким образом, чтобы в качестве
+	#аргументов, он мог принимать не только объекты класса Airplane, но и
+	#просто строки с именем самолета. Если в метод передается строка, то
+	#тогда метод должен самостоятельно создать новый самолет. Тут тебе
+	#понадобится if-else, а также метод #class, чтобы проверить
+	#принадлежность объекта к какому-либо классу (в нашем случае мы
+	#проверяем, принадлежит ли объект к классу Airplane или классу String).
+	#Нужно выводить ошибку (пока можно puts-ом), если объект не является ни
+	#строкой ни самолетом. Т.е. я хочу, чтобы можно было сделать так:
+
+  #radar.add(Airplane.new(...), "Boeing 747", Airplane.new(...))
+
+	#и получить 3 самолета на радаре.
 	def add(*planes)
-		planes.each { |plane| @airplanes.push(plane) }
+		planes.each do |plane| 
+			if plane.class == String 
+				@airplanes.push(Airplane.new(plane))
+			else
+				@airplanes.push(plane)		
+			end	
+		end	
 		@airplanes.uniq!
 	end
 
@@ -42,7 +63,7 @@ class Radar
 	#1. Написать метод Radar#deleted_landed, который удаляет все самолеты,
 	#высота которых равна 0.
 	def deleted_landed
-		@airplanes.each { |plane| @airplanes.delete(plane) if plane.altitude == 0 }
+		@airplanes.delete_if { |plane| plane.altitude.to_i == 0 }
 	end
 
 	#Брать каждый самолет из массива @airplanes и сопоставлять его по трем
