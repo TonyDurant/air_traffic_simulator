@@ -9,6 +9,8 @@ class Radar
 	
 	attr_reader :airplanes
 
+	include AirplaneContainer
+
 	def initialize
 		@airplanes = Array.new
 	end
@@ -33,20 +35,6 @@ class Radar
   #radar.add(Airplane.new(...), "Boeing 747", Airplane.new(...))
 
 	#и получить 3 самолета на радаре.
-	def add(*planes)
-		planes.each do |plane| 
-			if plane.class == String 
-				@airplanes.push(Airplane.new(plane))
-			else
-				@airplanes.push(plane)		
-			end	
-		end	
-		@airplanes.uniq!
-	end
-
-	def delete_airplane(ac)
-		@airplanes.each { |plane| @airplanes.delete(plane) if ac == plane.aircraft_type }
-	end
 
 	#2. Написать метод Radar#each_airplane. Метод должен перебирать каждый
 	#самолет, но только возвращать не сам объект, а несколько основных

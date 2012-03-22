@@ -9,7 +9,10 @@
 class Airport
 
 	attr_accessor :name, :code, :runways
+	attr_reader :airplanes
 	#attr_reader :runways
+
+	include AirplaneContainer
 
 	def self.create(options={})
 		airport         = Airport.new(options)
@@ -20,8 +23,9 @@ class Airport
 		airport
 	end
 
-	def initialize(args)
+	def initialize
 		@runways = Array.new
+		@airplanes = Array.new
 	end
 	
 	
