@@ -34,3 +34,8 @@ p runway2
 
 airport1 = Airport.create( {:name => "Franklin", :code => 007, :runways => [runway1, runway2]} )
 p airport1
+
+runway1.receive_airplane(plane_1)
+runway1.depart_airplane
+runway1.receive_airplane(plane_2)
+p runway1

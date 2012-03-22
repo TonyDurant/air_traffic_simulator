@@ -21,7 +21,7 @@ class Runway
 
 	def initialize(st)
 		@surface_type = st
-		@airplane = airplane
+		@airplane = Array.new
 	end
 	
 #	3. Создать методы Runway#receive_airplane и Runway#depart_airplane.
@@ -31,12 +31,19 @@ class Runway
 #пока существующий самолет не удален из этого свойства методом
 #depart_airplane.
 
-	def receive_airplane
-		
+	def receive_airplane(plane)
+		if array_empty? == true
+			@airplane.push(plane)
+		else puts "Can't add a plane coz runway is occupy"			
+		end
 	end
 
 	def depart_airplane
-		
+		@airplane.pop
+	end
+
+	def array_empty?
+		@airplane.empty?
 	end
 	
 end
