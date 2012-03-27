@@ -8,26 +8,26 @@
 
 class Airport
 
-	attr_accessor :name, :code, :runways
-	attr_reader :airplanes
-	#attr_reader :runways
+  attr_accessor :name, :code, :runways
+  attr_reader :airplanes
+  #attr_reader :runways
 
-	include AirplaneContainer
+  include AirplaneContainer
 
-	def self.create(options={})
-		airport         = Airport.new
-		airport.name    = options[:name]
-		airport.code    = options[:code]
-		#airport.runways = options[:runways]
-		airport.runways = options[:runways]
+  def self.create(options={})
+    airport         = Airport.new
+    airport.name    = options[:name]
+    airport.code    = options[:code]
+    #airport.runways = options[:runways]
+    airport.runways = options[:runways]
     airport.runways.each { |runway| runway.airport=(airport) }
-		airport
-	end
+    airport
+  end
 
-	def initialize
-		@runways = Array.new
-		@airplanes = Array.new
-	end
-	
-	
+  def initialize
+    @runways = Array.new
+    @airplanes = Array.new
+  end
+  
+  
 end
