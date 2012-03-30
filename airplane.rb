@@ -1,7 +1,8 @@
 class Airplane
 
-  attr_accessor :velocity, :altitude, :heading, :position, :weight
-  attr_reader   :aircraft_type
+  include Positionable
+#  attr_accessor :velocity, :altitude, :heading, :position, :weight
+#  attr_reader   :aircraft_type
 
   def self.create(options={})
     airplane          = Airplane.new(options[:aircraft_type])

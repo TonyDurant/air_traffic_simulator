@@ -11,7 +11,7 @@ module AirplaneContainer
     @airplanes.uniq!
   end
 
-  def delete_airplane(ac)
+  def delete_airplane(*ac)
     @airplanes.each { |plane| @airplanes.delete(plane) if ac == plane.aircraft_type }
   end
 

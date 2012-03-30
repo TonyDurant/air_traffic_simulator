@@ -1,3 +1,4 @@
+require_relative "positionable"
 require_relative "airplane_container"
 require_relative "airplane"
 require_relative "radar"
@@ -41,7 +42,7 @@ airport1 = Airport.create( {:name => "Franklin", :code => 007, :runways => [runw
 #p airport1
 
 runway1.receive_airplane(plane_1)
+runway2.receive_airplane(plane_2)
 p airport1.airplanes
-runway1.depart_airplane
-runway1.receive_airplane(plane_2)
-#p runway1
+runway1.depart_airplane(plane_1)
+p airport1.airplanes
