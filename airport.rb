@@ -29,5 +29,8 @@ class Airport
     @airplanes = Array.new
   end
   
+  def add_airplane(*planes)
+    super.each { |plane| plane.airport = self }
+  end
   
 end

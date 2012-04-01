@@ -1,6 +1,7 @@
 require_relative "positionable"
 require_relative "airplane_container"
 require_relative "airplane"
+require_relative "big_airplane"
 require_relative "radar"
 require_relative "runway"
 require_relative "airport"
@@ -8,7 +9,7 @@ require_relative "airport"
 plane_1 = Airplane.new("Boeing 747")
 plane_2 = Airplane.new("Boeing 777")
 plane_3 = Airplane.new("Anton 777")
-plane_4 = Airplane.new("Anton 888")
+plane_4 = BigAirplane.new("Anton 888")
 radar = Radar.new
 #p radar.airplanes.size
 radar.add_airplane(plane_1, plane_2, plane_3, plane_4, plane_4)
@@ -44,5 +45,5 @@ airport1 = Airport.create( {:name => "Franklin", :code => 007, :runways => [runw
 runway1.receive_airplane(plane_1)
 runway2.receive_airplane(plane_2)
 p airport1.airplanes
-runway1.depart_airplane(plane_1)
+runway1.depart_airplane
 p airport1.airplanes

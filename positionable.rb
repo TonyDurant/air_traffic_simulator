@@ -4,7 +4,7 @@
 #attr_reader и attr_writer как обычно ты это делаешь в классе.
 module Positionable
   
-  attr_reader :length, :course, :surface_type, :position_x, :position_y, :altitude, :velocity, :heading, :position, :weight
-  attr_accessor :airport, :aircraft_type
+  attr_reader :length, :course, :position_x, :position_y, :altitude, :velocity, :position
+  attr_accessor :airport
 
 end

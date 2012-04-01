@@ -7,10 +7,8 @@
 class Runway
 
   include Positionable
-  #attr_reader :length, :course, :surface_type, :position_x, :position_y, :altitude
-  #attr_accessor :airport
-
   include AirplaneContainer
+  attr_reader :surface_type
 
   def self.create(options={})
     Runway.new(options)
@@ -42,8 +40,8 @@ class Runway
 
 #1. Метод Runway#depart_airplane должен сначала удалять самолет из
 #Airport, затем удалять его из Runway.
-  def depart_airplane(plane)
-    airport.delete_airplane(plane)
+  def depart_airplane
+    airport.delete_airplane(@airplane)
     @airplane = nil
   end
   

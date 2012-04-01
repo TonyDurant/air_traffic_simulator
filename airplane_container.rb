@@ -12,7 +12,7 @@ module AirplaneContainer
   end
 
   def delete_airplane(*ac)
-    @airplanes.each { |plane| @airplanes.delete(plane) if ac == plane.aircraft_type }
+    @airplanes.delete_if { |plane| ac.include?(plane) }
   end
 
 end
