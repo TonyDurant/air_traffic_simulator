@@ -1,13 +1,7 @@
-#1. Создать класс Runway cо свойствами length, course (направление,
-#также в градусах) и surface_type (например "Asphalt" или "Concrete"),
-#position_x, position_y, altitude (высота над уровнем моря). Сделать
-#так, чтобы свойства можно было задать при создании объекта и потом
-#только читать при помощи геттеров.
-
 class Runway
 
   include Positionable
-  include AirplaneContainer
+  #include AirplaneContainer
   attr_reader :surface_type
 
   def self.create(options={})
@@ -21,13 +15,6 @@ class Runway
     @position_y   = options[:position_y]
     @altitude     = options[:altitude]
   end
-  
-# 3. Создать методы Runway#receive_airplane и Runway#depart_airplane.
-#Тут нужно понимать, что объект класса Runway может в один момент
-#времени иметь только один самолет (понадобится свойство @airplane) и
-#метод #receive_airplane не может принимать новый самолет до тех пор,
-#пока существующий самолет не удален из этого свойства методом
-#depart_airplane.
 
   def receive_airplane(plane)
     if @airplane.nil?
@@ -38,8 +25,6 @@ class Runway
     end
   end
 
-#1. Метод Runway#depart_airplane должен сначала удалять самолет из
-#Airport, затем удалять его из Runway.
   def depart_airplane
     airport.delete_airplane(@airplane)
     @airplane = nil

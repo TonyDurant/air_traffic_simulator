@@ -12,21 +12,23 @@ class Airport
   attr_reader :airplanes
   #attr_reader :runways
 
-  include AirplaneContainer
+  include AirplaneContainer::Manager
+  include AirplaneContainer::Info
 
   def self.create(options={})
     airport         = Airport.new
     airport.name    = options[:name]
     airport.code    = options[:code]
-    #airport.runways = options[:runways]
     airport.runways = options[:runways]
     airport.runways.each { |runway| runway.airport=(airport) }
+    #airport.aircraft_quantity = options[:aircraft_quantity] || 50
     airport
   end
 
   def initialize
     @runways = Array.new
     @airplanes = Array.new
+    @aircraft_quantity = 50
   end
   
   def add_airplane(*planes)

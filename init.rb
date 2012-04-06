@@ -9,7 +9,7 @@ require_relative "airport"
 plane_1 = Airplane.new("Boeing 747")
 plane_2 = Airplane.new("Boeing 777")
 plane_3 = Airplane.new("Anton 777")
-plane_4 = BigAirplane.new("Anton 888")
+plane_4 = BigAirplane.new({ :aircraft_type => "Anton 888", :engines_count => 7})
 radar = Radar.new
 #p radar.airplanes.size
 radar.add_airplane(plane_1, plane_2, plane_3, plane_4, plane_4)
