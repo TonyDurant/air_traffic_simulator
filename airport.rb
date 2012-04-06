@@ -21,7 +21,7 @@ class Airport
     airport.code    = options[:code]
     airport.runways = options[:runways]
     airport.runways.each { |runway| runway.airport=(airport) }
-    #airport.aircraft_quantity = options[:aircraft_quantity] || 50
+    airport.aircraft_quantity = options[:aircraft_quantity] || 50
     airport
   end
 
@@ -32,7 +32,8 @@ class Airport
   end
   
   def add_airplane(*planes)
-    super.each { |plane| plane.airport = self }
+    super
+    planes.each { |plane| plane.airport = self }
   end
   
 end

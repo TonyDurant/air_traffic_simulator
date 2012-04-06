@@ -9,7 +9,7 @@ require_relative "airport"
 plane_1 = Airplane.new("Boeing 747")
 plane_2 = Airplane.new("Boeing 777")
 plane_3 = Airplane.new("Anton 777")
-plane_4 = BigAirplane.new({ :aircraft_type => "Anton 888", :engines_count => 7})
+plane_4 = BigAirplane.create({ :aircraft_type => "Anton 888", :engines_count => 7})
 radar = Radar.new
 #p radar.airplanes.size
 radar.add_airplane(plane_1, plane_2, plane_3, plane_4, plane_4)
@@ -43,7 +43,10 @@ airport1 = Airport.create( {:name => "Franklin", :code => 007, :runways => [runw
 #p airport1
 
 runway1.receive_airplane(plane_1)
-runway2.receive_airplane(plane_2)
-p airport1.airplanes
-runway1.depart_airplane
-p airport1.airplanes
+runway2.receive_airplane(plane_4)
+puts airport1.airplanes
+#runway1.depart_airplane
+puts airport1.airplanes_count { |a| true }
+puts airport1.big_airplanes_count { |a| p a.aircraft_type == "Anton 888" }
+
+#p airport1.airplanes

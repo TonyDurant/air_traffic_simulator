@@ -1,7 +1,7 @@
 class BigAirplane < Airplane
 
   def initialize(options={})
-    @engines_count = options[:engines_count] || 4
+    #@engines_count = options[:engines_count] || 4
     super
   end
 
